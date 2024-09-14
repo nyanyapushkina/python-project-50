@@ -18,6 +18,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = ">=3.8.1,<4.0"
+PyYAML = "6.0.2"
 
 [tool.poetry.scripts]
 gendiff = "gendiff.scripts.gendiff:main"
