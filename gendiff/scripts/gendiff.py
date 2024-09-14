@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import argparse
 import json
-form gendiff import parser
+from gendiff import parser
 
 def gendiff(filepath1, filepath2):
     file1, file2 = parser(filepath1, filepath2)
-    
+
     all_keys = set(file1.keys()).union(set(file2.keys()))
     result = []
 
