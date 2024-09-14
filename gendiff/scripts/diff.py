@@ -21,13 +21,13 @@ def diff(dict1, dict2):
                 'status': 'nested',
                 'children': diff(dict1[key], dict2[key])
                 })
-            elif dict1[key] == dict2[key]:
+        elif dict1[key] == dict2[key]:
             result.append({
                 'name': key,
                 'status': 'not changed',
                 'data': dict1[key]
                 })
-            else:
+        else:
             result.append({
                 'name': key,
                 'status': 'changed',
