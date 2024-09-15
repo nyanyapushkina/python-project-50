@@ -6,3 +6,5 @@ dist/
 .coverage
 coverage.xml
 .pytest_cache/
+.DS_Store
+demo.cast
