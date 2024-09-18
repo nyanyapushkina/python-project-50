@@ -3,7 +3,7 @@ def stylish(diff_list):
 
 
 def calculate_indentation(depth):
-    return " " * (depth * 4 - 2)
+    return " " * (depth * 2)
 
 
 def format_value(value, indent):
@@ -29,14 +29,14 @@ def format_dict(data, indent):
 
 
 def process_node(node, level):
-    indent = calculate_indentation(level + 1)
+    indent = calculate_indentation(level)
     
     if node['status'] == 'nested':
         children_output = generate_diff_output(node['children'], level + 1)
         return f"{indent}  {node['name']}: {children_output}\n"
     
-    data = format_value(node.get('data', {}), indent)
-    
+    data = format_value(node['data'], indent)
+
     if node['status'] == 'not changed':
         return f"{indent}  {node['name']}: {data}\n"
     elif node['status'] == 'added':
