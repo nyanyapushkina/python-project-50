@@ -1,5 +1,5 @@
 def stylish(diff_list):
-    generate_diff_output(diff_list)
+    return generate_diff_output(diff_list)
 
 
 def calculate_indentation(depth):
