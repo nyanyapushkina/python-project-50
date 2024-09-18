@@ -39,7 +39,7 @@ def diff(dict1, dict2):
                 'data after': dict2[key]
                 })
             
-        return result
+    return result
     
 
 def generate_diff(path_file1, path_file2, format_name='stylish'):
