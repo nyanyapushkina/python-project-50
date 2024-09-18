@@ -10,8 +10,8 @@ test-coverage:
 lint:
 	poetry run flake8 gendiff
 
-generate-diff:
-	poetry run generate-diff
+gendiff:
+	poetry run gendiff
 
 selfcheck:
 	poetry check
@@ -27,4 +27,4 @@ publish:
 package-install: 
 	python3 -m pip install --user dist/*.whl
 
-.PHONY: install test lint selfcheck check build generate-diff package-install publish
+.PHONY: gendiff
