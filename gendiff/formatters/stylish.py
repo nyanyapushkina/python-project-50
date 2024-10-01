@@ -26,29 +26,33 @@ def format_dict(dict, indent):
     return result
 
 
+def format_node(node, indent):
+    if node['status'] == 'nested':
+        children_output = gendiff_output(node['children'], level + 1)
+        return f"{indent}  {node['name']}: {children_output}\n"
+    elif node['status'] == 'not changed':
+        data = format_value(node['data'], indent)
+        return f"{indent}  {node['name']}: {data}\n"
+    elif node['status'] == 'added':
+        data = format_value(node['data'], indent)
+        return f"{indent}+ {node['name']}: {data}\n"
+    elif node['status'] == 'deleted':
+        data = format_value(node['data'], indent)
+        return f"{indent}- {node['name']}: {data}\n"
+    elif node['status'] == 'changed':
+        data_before = format_value(node['data before'], indent)
+        data_after = format_value(node['data after'], indent)
+        return (f"{indent}- {node['name']}: {data_before}\n"
+                f"{indent}+ {node['name']}: {data_after}\n")
+    return ""
+
 def gendiff_output(diff_list, level=0):
     result = '{\n'
-    indent = '  '
-    for i in range(level):
-        indent += '    '
+    indent = '  ' * (level + 1)  # Увеличиваем отступ на 1 уровень
     diff_list.sort(key=lambda x: x['name'])
+    
     for node in diff_list:
-        if node['status'] == 'nested':
-            children_output = gendiff_output(node['children'], level + 1)
-            result += f"{indent}  {node['name']}: {children_output}\n"
-        if node['status'] == 'not changed':
-            data = format_value(node['data'], indent)
-            result += f"{indent}  {node['name']}: {data}\n"
-        elif node['status'] == 'added':
-            data = format_value(node['data'], indent)
-            result += f"{indent}+ {node['name']}: {data}\n"
-        elif node['status'] == 'deleted':
-            data = format_value(node['data'], indent)
-            result += f"{indent}- {node['name']}: {data}\n"
-        elif node['status'] == 'changed':
-            data_before = format_value(node['data before'], indent)
-            data_after = format_value(node['data after'], indent)
-            result += (f"{indent}- {node['name']}: {data_before}\n"
-                       f"{indent}+ {node['name']}: {data_after}\n")
+        result += format_node(node, indent)
+
     result += indent[:-2] + '}'
     return result
