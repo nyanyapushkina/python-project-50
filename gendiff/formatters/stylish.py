@@ -26,7 +26,7 @@ def format_dict(dict, indent):
     return result
 
 
-def format_node(node, indent):
+def format_node(node, indent, level):
     if node['status'] == 'nested':
         children_output = gendiff_output(node['children'], level + 1)
         return f"{indent}  {node['name']}: {children_output}\n"
@@ -48,11 +48,11 @@ def format_node(node, indent):
 
 def gendiff_output(diff_list, level=0):
     result = '{\n'
-    indent = '  ' * (level + 1)  # Увеличиваем отступ на 1 уровень
+    indent = '  ' * (level + 1)
     diff_list.sort(key=lambda x: x['name'])
     
     for node in diff_list:
-        result += format_node(node, indent)
+        result += format_node(node, indent, level)
 
     result += indent[:-2] + '}'
     return result
