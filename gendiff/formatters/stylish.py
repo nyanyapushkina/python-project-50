@@ -34,7 +34,7 @@ def gendiff_output(diff_list, level=0):
     diff_list.sort(key=lambda x: x['name'])
     for node in diff_list:
         if node['status'] == 'nested':
-            children_output = generate_diff_output(node['children'], level + 1)
+            children_output = gendiff_output(node['children'], level + 1)
             result += f"{indent}  {node['name']}: {children_output}\n"
         if node['status'] == 'not changed':
             data = format_value(node['data'], indent)
