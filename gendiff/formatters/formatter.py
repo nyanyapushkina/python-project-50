@@ -12,5 +12,5 @@ def format_diff(list_diff, format_name="stylish"):
         return json_format(list_diff)
 
     raise ValueError(
-    'Unknown format. Only stylish, plain and json are supported.'
-)
+        'Unknown format. Only stylish, plain and json are supported.'
+    )
