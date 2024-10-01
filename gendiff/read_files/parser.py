@@ -2,6 +2,7 @@ import json
 import yaml
 from pathlib import Path
 
+
 def open_file(filepath):
     file_extension = Path(filepath).suffix
     if file_extension.lower() == '.json':
