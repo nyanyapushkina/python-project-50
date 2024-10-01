@@ -26,7 +26,7 @@ def format_dict(dict, indent):
     return result
 
 
-def gendiff_output(diff_list, level=0): # noqa: C901
+def gendiff_output(diff_list, level=0):  # noqa: C901
     result = '{\n'
     indent = '  '
     for i in range(level):
