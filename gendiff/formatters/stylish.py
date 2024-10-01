@@ -1,10 +1,10 @@
 def stylish(diff_list):
-    return generate_diff_output(diff_list)
+    return gendiff_output(diff_list)
 
 
 def format_value(value, indent):
     if isinstance(value, dict):
-        indent +=  '    '
+        indent += '    '
         result = format_dict(value, indent)
         return result
     elif value is False:
@@ -15,7 +15,7 @@ def format_value(value, indent):
         return 'null'
     else:
         return str(value)
-    
+
 
 def format_dict(dict, indent):
     result = '{\n'
@@ -26,11 +26,11 @@ def format_dict(dict, indent):
     return result
 
 
-def generate_diff_output(diff_list, level=0):
+def gendiff_output(diff_list, level=0):
     result = '{\n'
     indent = '  '
     for i in range(level):
-        indent += '    '  
+        indent += '    '
     diff_list.sort(key=lambda x: x['name'])
     for node in diff_list:
         if node['status'] == 'nested':
@@ -49,6 +49,6 @@ def generate_diff_output(diff_list, level=0):
             data_before = format_value(node['data before'], indent)
             data_after = format_value(node['data after'], indent)
             result += (f"{indent}- {node['name']}: {data_before}\n"
-                    f"{indent}+ {node['name']}: {data_after}\n")
+                       f"{indent}+ {node['name']}: {data_after}\n")
     result += indent[:-2] + '}'
     return result
