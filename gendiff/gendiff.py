@@ -3,7 +3,7 @@
 from gendiff.formatters.formatter import format_diff
 from gendiff.read_files.argparse import parser_arg
 from gendiff.read_files.parser import open_file
-from gendiff.generate_diff import diff
+from .scripts.generate_diff import diff
 
 
 def generate_diff(path_file1: str,
