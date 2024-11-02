@@ -1,5 +1,5 @@
 import pytest
-from gendiff.gendiff import generate_diff
+from gendiff.generate_diff import generate_diff
 from pathlib import Path
 
 def test_stylish_json():
