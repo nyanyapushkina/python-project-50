@@ -1,6 +1,6 @@
-import pytest
-from gendiff.generate_diff import generate_diff
+from gendiff.gendiff import generate_diff
 from pathlib import Path
+
 
 def test_stylish_json():
     path_dict1 = get_fixture_path('file1.json')
@@ -12,6 +12,7 @@ def test_stylish_json():
 
     assert generate_diff(path_dict1, path_dict2, 'stylish') == expected_output
 
+
 def test_stylish_yml():
     path_dict1 = get_fixture_path('file1.yml')
     path_dict2 = get_fixture_path('file2.yml')
@@ -21,6 +22,7 @@ def test_stylish_yml():
         expected_output = f.read().strip()
 
     assert generate_diff(path_dict1, path_dict2, 'stylish') == expected_output
+
 
 def test_plain_json():
     path_dict1 = get_fixture_path('file1.json')
@@ -32,6 +34,7 @@ def test_plain_json():
 
     assert generate_diff(path_dict1, path_dict2, 'plain') == expected_output
 
+
 def test_plain_yml():
     path_dict1 = get_fixture_path('file1.yml')
     path_dict2 = get_fixture_path('file2.yml')
@@ -41,6 +44,7 @@ def test_plain_yml():
         expected_output = f.read().strip()
 
     assert generate_diff(path_dict1, path_dict2, 'plain') == expected_output
+
 
 def test_json():
     path_dict1 = get_fixture_path('file1.json')
@@ -52,6 +56,7 @@ def test_json():
 
     assert generate_diff(path_dict1, path_dict2, 'json') == expected_output
 
+
 def test_yml():
     path_dict1 = get_fixture_path('file1.yml')
     path_dict2 = get_fixture_path('file2.yml')
@@ -61,6 +66,7 @@ def test_yml():
         expected_output = f.read().strip()
 
     assert generate_diff(path_dict1, path_dict2, 'json') == expected_output
+
 
 def get_fixture_path(file_name):
     return Path(Path(__file__).parent.absolute() / 'fixtures' / file_name)
