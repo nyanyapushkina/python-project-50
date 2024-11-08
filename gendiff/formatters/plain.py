@@ -30,11 +30,11 @@ def get_diff_plain_list(diff_list, path=''):
     result = []
     for node in diff_list:
         if node['status'] == 'nested':
-            path_to_change = path + node['name'] + '.'
+            path_to_change = f"{path}{node['name']}."
             difference = get_diff_plain_list(node['children'], path_to_change)
             result.extend(difference)
         if node['status'] == 'added':
-            path_to_change = path + node['name']
+            path_to_change = f"{path}{node['name']}"
             change = format_value(node['data'])
             difference = (
                 f"Property '{path_to_change}' was added "
@@ -42,12 +42,12 @@ def get_diff_plain_list(diff_list, path=''):
             )
             result.append(difference)
         if node['status'] == 'deleted':
-            path_to_change = path + node['name']
+            path_to_change = f"{path}{node['name']}"
             change = format_value(node['data'])
-            difference = "Property '{}' was removed".format(path_to_change)
+            difference = f"Property '{path_to_change}' was removed"
             result.append(difference)
         if node['status'] == 'changed':
-            path_to_change = path + node['name']
+            path_to_change = f"{path}{node['name']}"
             change_before = format_value(node['data before'])
             change_after = format_value(node['data after'])
             difference = (
