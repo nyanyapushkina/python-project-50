@@ -2,6 +2,7 @@ import pytest
 from gendiff.gendiff import generate_diff
 from pathlib import Path
 
+
 @pytest.mark.parametrize("file1, file2, result_file, format", [
     ('file1.json', 'file2.json', 'stylish_result.txt', 'stylish'),
     ('file1.yml', 'file2.yml', 'stylish_result.txt', 'stylish'),
