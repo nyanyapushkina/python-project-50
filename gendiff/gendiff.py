@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from gendiff.formatters.formatter import format_diff
-from gendiff.read_files.argparse import parser_arg
+from gendiff.read_files.cli import parser_arg
 from gendiff.read_files.parser import open_file
 from gendiff.scripts.diff import diff
 
