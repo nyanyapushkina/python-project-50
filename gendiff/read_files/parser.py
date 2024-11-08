@@ -11,5 +11,4 @@ def open_file(filepath):
     elif file_extension.lower() in ['.yaml', '.yml']:
         with open(filepath) as f:
             return yaml.safe_load(f)
-    else:
-        raise ValueError("Unsupported file format")
+    raise ValueError("Unsupported file format")
