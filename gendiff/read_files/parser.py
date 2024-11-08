@@ -8,7 +8,7 @@ def open_file(filepath):
     if file_extension.lower() == '.json':
         with open(filepath) as f:
             return json.load(f)
-    elif file_extension.lower() == '.yaml' or file_extension.lower() == '.yml':
+    elif file_extension.lower() in ['.yaml', '.yml']:
         with open(filepath) as f:
             return yaml.safe_load(f)
     else:
