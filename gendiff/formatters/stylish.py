@@ -3,6 +3,7 @@ def stylish(diff_list):
 
 
 def format_value(value, indent):
+    """Process data to get a required result"""
     if isinstance(value, dict):
         indent += '    '
         result = format_dict(value, indent)

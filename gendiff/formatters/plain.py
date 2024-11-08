@@ -9,6 +9,7 @@ def generate_diff_output(diff_list):
 
 
 def format_value(data):
+    """Process data to get a required result"""
     if isinstance(data, (dict, list)):
         result = '[complex value]'
     elif data is False:
@@ -25,6 +26,7 @@ def format_value(data):
 
 
 def get_diff_plain_list(diff_list, path=''):
+    """Process each node to define its status"""
     result = []
     for node in diff_list:
         if node['status'] == 'nested':

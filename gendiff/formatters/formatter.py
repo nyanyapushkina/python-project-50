@@ -4,6 +4,7 @@ from gendiff.formatters.json_format import json_format
 
 
 def format_diff(list_diff, format_name="stylish"):
+    """Use an apropriate formatter based on user's input"""
     if format_name == 'stylish':
         return stylish(list_diff)
     elif format_name == 'plain':
