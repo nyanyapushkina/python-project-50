@@ -4,6 +4,7 @@ from pathlib import Path
 
 
 def open_file(filepath):
+    """Parse files and check if they're in acceptable format"""
     file_extension = Path(filepath).suffix
     if file_extension.lower() == '.json':
         with open(filepath) as f:
