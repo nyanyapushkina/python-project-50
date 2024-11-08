@@ -9,6 +9,7 @@ from gendiff.scripts.diff import diff
 def generate_diff(path_file1: str,
                   path_file2: str,
                   format_name: str = 'stylish') -> tuple:
+    """Open files, compare them and return the result in requested format"""
     dict1 = open_file(path_file1)
     dict2 = open_file(path_file2)
     list_diff = diff(dict1, dict2)
