@@ -12,6 +12,7 @@ from pathlib import Path
     ('file1.yml', 'file2.yml', 'json_result.json', 'json')
 ])
 def test_generate_diff(file1, file2, result_file, format):
+    """Read fixtures files and compare the result of applied function with an expected one"""
     path_dict1 = get_fixture_path(file1)
     path_dict2 = get_fixture_path(file2)
     path_result = get_fixture_path(result_file)
